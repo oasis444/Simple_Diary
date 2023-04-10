@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xAJ-2p-ksa">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="H4t-G4-Y3K">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xAJ-2p-ksa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="euR-X8-bDt">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="L9m-5l-UD5" kind="relationship" relationship="viewControllers" id="bRe-BY-9nZ"/>
+                        <segue destination="Llf-or-hb9" kind="relationship" relationship="viewControllers" id="4q2-hF-7pu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fy5-uD-kA5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+        <!--initDiary-->
+        <scene sceneID="5fd-Sb-G3s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Diary" referencedIdentifier="initDiary" id="L9m-5l-UD5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="다이어리" image="folder" catalog="system" id="3bG-2B-FEc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VcU-GN-lIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-219"/>
+        </scene>
+        <!--initBookMark-->
+        <scene sceneID="TUB-3W-gaf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BookMark" referencedIdentifier="initBookMark" id="Llf-or-hb9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1be-SV-VQC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZSu-U2-6fX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="-138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="folder" catalog="system" width="128" height="96"/>
+    </resources>
+</document>

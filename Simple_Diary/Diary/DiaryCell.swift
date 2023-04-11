@@ -16,7 +16,8 @@ class DiaryCell: UICollectionViewCell {
         super.awakeFromNib()
         
         contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderWidth = 1
+        contentView.layer.cornerRadius = 3
     }
     
     func configure(info: Diary) {

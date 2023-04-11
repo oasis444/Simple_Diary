@@ -5,15 +5,23 @@
 //  Copyright (c) 2023 oasis444. All right reserved.
 //
 
+/*
+ info: 아래 코드에서 viewDidLoad 할 때마다 UserDefaults로 저장된 값을 불러오고 diaryList에 저장하면 didSet에 의해 다시 저장하게 되어 비효율적이지만 didSet의 활용을 보여주기 위해 사용한 방법
+ */
+
 import UIKit
 
 class DiaryVC: UIViewController, WriteDiaryViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var diaryList = [Diary]()
+    private var diaryList = [Diary]() {
+        didSet {
+            self.saveDiaryList()
+        }
+    }
+    let userDefaults = UserDefaults.standard
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    
     typealias Item = Diary
     enum Section {
         case main
@@ -29,6 +37,16 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate {
     private func configure() {
         let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction))
         navigationItem.rightBarButtonItem = addBtn
+        
+        guard let diarys = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else { return }
+        let diarylist = diarys.map {
+            let title = $0["title"] as! String
+            let contents = $0["contents"] as! String
+            let date = $0["date"] as! Date
+            let bookMark = $0["bookMark"] as! Bool
+            return Diary(title: title, contents: contents, date: date, bookMark: bookMark)
+        }
+        diaryList = sorting(list: diarylist)
     }
     
     private func configureCollectionView() {
@@ -76,7 +94,27 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate {
     
     func didSelectRegister(diary: Diary) {
         diaryList.append(diary)
+        diaryList = sorting(list: diaryList)
         applyItems(items: diaryList)
+    }
+    
+    private func saveDiaryList() {
+        let diarys: [[String: Any]] = diaryList.map {
+            [
+                "title": $0.title,
+                "contents": $0.contents,
+                "date": $0.date,
+                "bookMark": $0.bookMark
+            ]
+        }
+        userDefaults.set(diarys, forKey: "diaryList")
+    }
+    
+    private func sorting(list: [Diary]) -> [Diary] {
+        let sortedList = list.sorted { prev, next in
+            prev.date > next.date
+        }
+        return sortedList
     }
 }
 

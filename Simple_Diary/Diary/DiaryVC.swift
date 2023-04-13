@@ -11,7 +11,7 @@
 
 import UIKit
 
-class DiaryVC: UIViewController, WriteDiaryViewDelegate {
+class DiaryVC: UIViewController, WriteDiaryViewDelegate, DiaryDetailViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -86,8 +86,8 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate {
     }
 
     @objc func addAction() {
-        let sb = UIStoryboard(name: "DiaryDetail", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "DiaryDetailVC") as! DiaryDetailVC
+        let sb = UIStoryboard(name: "WriteDiary", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "WriteDiaryVC") as! WriteDiaryVC
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -95,6 +95,11 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate {
     func didSelectRegister(diary: Diary) {
         diaryList.append(diary)
         diaryList = sorting(list: diaryList)
+        applyItems(items: diaryList)
+    }
+    
+    func didSelectDelete(indexPath: IndexPath) {
+        diaryList.remove(at: indexPath.item)
         applyItems(items: diaryList)
     }
     
@@ -120,6 +125,11 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate {
 
 extension DiaryVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("select: \(indexPath.item)")
+        let sb = UIStoryboard(name: "DetailDiary", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "DetailDiaryVC") as! DetailDiaryVC
+        vc.diary = diaryList[indexPath.item]
+        vc.indexPath = indexPath
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Diary DetailVC-->
+        <!--Write DiaryVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="DiaryDetailVC" id="Y6W-OH-hqX" customClass="DiaryDetailVC" customModule="Simple_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDiaryVC" id="Y6W-OH-hqX" customClass="WriteDiaryVC" customModule="Simple_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,35 +64,17 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Wml-lG-lIZ">
-                                <rect key="frame" x="141.66666666666666" y="470" width="110" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjI-Sd-dLt">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="수정"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfp-dR-nWI">
-                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="삭제"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Vd4-r2-cgP" firstAttribute="top" secondItem="4HZ-VV-EgN" secondAttribute="bottom" constant="24" id="2TO-lG-JKE"/>
                             <constraint firstItem="4HZ-VV-EgN" firstAttribute="top" secondItem="YMX-u4-wxT" secondAttribute="bottom" constant="12" id="3bu-fQ-pRi"/>
-                            <constraint firstItem="Wml-lG-lIZ" firstAttribute="centerX" secondItem="Vd4-r2-cgP" secondAttribute="centerX" id="3cL-ga-eyA"/>
                             <constraint firstItem="Vd4-r2-cgP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="63a-7Q-cxh"/>
                             <constraint firstItem="4HZ-VV-EgN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="CWj-0T-DDk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Vd4-r2-cgP" secondAttribute="trailing" constant="24" id="EIm-Jd-CfS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X1x-G0-gco" secondAttribute="trailing" constant="24" id="Tab-X8-BAH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4HZ-VV-EgN" secondAttribute="trailing" constant="20" id="d5L-qf-CuU"/>
-                            <constraint firstItem="Wml-lG-lIZ" firstAttribute="top" secondItem="Vd4-r2-cgP" secondAttribute="bottom" constant="24" id="ePF-Sw-CUD"/>
                             <constraint firstItem="X1x-G0-gco" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="i4a-nt-uBN"/>
                             <constraint firstItem="YMX-u4-wxT" firstAttribute="top" secondItem="X1x-G0-gco" secondAttribute="bottom" constant="24" id="n2k-F3-Kpl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YMX-u4-wxT" secondAttribute="trailing" constant="24" id="qcO-Lr-xxl"/>
@@ -117,9 +99,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

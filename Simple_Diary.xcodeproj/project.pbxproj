@@ -21,9 +21,11 @@
 		3331B61129E1B3C50040B576 /* BookMarkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331B61029E1B3C50040B576 /* BookMarkVC.swift */; };
 		3331B61329E298940040B576 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331B61229E298940040B576 /* DiaryCell.swift */; };
 		3331B61529E29A300040B576 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331B61429E29A300040B576 /* BookMarkCell.swift */; };
-		3331B61729E29F890040B576 /* DiaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331B61629E29F890040B576 /* DiaryDetailVC.swift */; };
-		3331B61929E29FA60040B576 /* DiaryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3331B61829E29FA60040B576 /* DiaryDetail.storyboard */; };
+		3331B61729E29F890040B576 /* WriteDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331B61629E29F890040B576 /* WriteDiaryVC.swift */; };
+		3331B61929E29FA60040B576 /* WriteDiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3331B61829E29FA60040B576 /* WriteDiary.storyboard */; };
 		3385E0C729E3DEE30071FCA6 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3385E0C629E3DEE30071FCA6 /* Diary.swift */; };
+		33C6522029E72D61000BBA90 /* DetailDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C6521F29E72D61000BBA90 /* DetailDiaryVC.swift */; };
+		33C6522329E72DA5000BBA90 /* DetailDiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6522229E72DA5000BBA90 /* DetailDiary.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +64,11 @@
 		3331B61029E1B3C50040B576 /* BookMarkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkVC.swift; sourceTree = "<group>"; };
 		3331B61229E298940040B576 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		3331B61429E29A300040B576 /* BookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
-		3331B61629E29F890040B576 /* DiaryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailVC.swift; sourceTree = "<group>"; };
-		3331B61829E29FA60040B576 /* DiaryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiaryDetail.storyboard; sourceTree = "<group>"; };
+		3331B61629E29F890040B576 /* WriteDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryVC.swift; sourceTree = "<group>"; };
+		3331B61829E29FA60040B576 /* WriteDiary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WriteDiary.storyboard; sourceTree = "<group>"; };
 		3385E0C629E3DEE30071FCA6 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		33C6521F29E72D61000BBA90 /* DetailDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDiaryVC.swift; sourceTree = "<group>"; };
+		33C6522229E72DA5000BBA90 /* DetailDiary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailDiary.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +124,8 @@
 				3331B5DC29E151DD0040B576 /* Main.storyboard */,
 				3385E0C629E3DEE30071FCA6 /* Diary.swift */,
 				3331B60A29E1B1E00040B576 /* Diary */,
-				3331B61A29E29FAA0040B576 /* DiaryDetail */,
+				3331B61A29E29FAA0040B576 /* WriteDiary */,
+				33C6522129E72D8F000BBA90 /* DetailDiary */,
 				3331B60F29E1B3AC0040B576 /* BookMark */,
 				3331B5DF29E151DE0040B576 /* Assets.xcassets */,
 				3331B5E129E151DE0040B576 /* LaunchScreen.storyboard */,
@@ -166,13 +171,22 @@
 			path = BookMark;
 			sourceTree = "<group>";
 		};
-		3331B61A29E29FAA0040B576 /* DiaryDetail */ = {
+		3331B61A29E29FAA0040B576 /* WriteDiary */ = {
 			isa = PBXGroup;
 			children = (
-				3331B61829E29FA60040B576 /* DiaryDetail.storyboard */,
-				3331B61629E29F890040B576 /* DiaryDetailVC.swift */,
+				3331B61829E29FA60040B576 /* WriteDiary.storyboard */,
+				3331B61629E29F890040B576 /* WriteDiaryVC.swift */,
 			);
-			path = DiaryDetail;
+			path = WriteDiary;
+			sourceTree = "<group>";
+		};
+		33C6522129E72D8F000BBA90 /* DetailDiary */ = {
+			isa = PBXGroup;
+			children = (
+				33C6522229E72DA5000BBA90 /* DetailDiary.storyboard */,
+				33C6521F29E72D61000BBA90 /* DetailDiaryVC.swift */,
+			);
+			path = DetailDiary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +296,10 @@
 				3331B60929E1B1DC0040B576 /* Diary.storyboard in Resources */,
 				3331B5E329E151DE0040B576 /* LaunchScreen.storyboard in Resources */,
 				3331B5E029E151DE0040B576 /* Assets.xcassets in Resources */,
+				33C6522329E72DA5000BBA90 /* DetailDiary.storyboard in Resources */,
 				3331B5DE29E151DD0040B576 /* Main.storyboard in Resources */,
 				3331B60E29E1B3A80040B576 /* BookMark.storyboard in Resources */,
-				3331B61929E29FA60040B576 /* DiaryDetail.storyboard in Resources */,
+				3331B61929E29FA60040B576 /* WriteDiary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,10 +328,11 @@
 				3331B60729E1B1D30040B576 /* DiaryVC.swift in Sources */,
 				3331B61129E1B3C50040B576 /* BookMarkVC.swift in Sources */,
 				3331B61529E29A300040B576 /* BookMarkCell.swift in Sources */,
-				3331B61729E29F890040B576 /* DiaryDetailVC.swift in Sources */,
+				3331B61729E29F890040B576 /* WriteDiaryVC.swift in Sources */,
 				3331B61329E298940040B576 /* DiaryCell.swift in Sources */,
 				3331B5D929E151DD0040B576 /* SceneDelegate.swift in Sources */,
 				3385E0C729E3DEE30071FCA6 /* Diary.swift in Sources */,
+				33C6522029E72D61000BBA90 /* DetailDiaryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

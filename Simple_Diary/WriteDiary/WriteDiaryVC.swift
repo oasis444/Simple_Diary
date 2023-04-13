@@ -1,5 +1,5 @@
 //
-//  DiaryDetailVC.swift
+//  WriteDiaryVC.swift
 //  Simple_Diary
 //
 //  Copyright (c) 2023 oasis444. All right reserved.
@@ -17,7 +17,7 @@ protocol WriteDiaryViewDelegate: AnyObject {
     func didSelectRegister(diary: Diary)
 }
 
-class DiaryDetailVC: UIViewController {
+class WriteDiaryVC: UIViewController {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
@@ -68,10 +68,9 @@ class DiaryDetailVC: UIViewController {
     }
     
     @objc private func register() {
-        print("here1")
-        guard let title = titleField.text else { return print("here2") }
-        guard let contents = contentsTextView.text else { return print("here3")}
-        guard let date = diaryDate else { return print("here4")}
+        guard let title = titleField.text else { return }
+        guard let contents = contentsTextView.text else { return }
+        guard let date = diaryDate else { return }
         let diary = Diary(title: title, contents: contents, date: date, bookMark: false)
         delegate?.didSelectRegister(diary: diary)
         navigationController?.popViewController(animated: true)
@@ -93,7 +92,7 @@ class DiaryDetailVC: UIViewController {
     }
 }
 
-extension DiaryDetailVC: UITextViewDelegate {
+extension WriteDiaryVC: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         validateInputField()
     }

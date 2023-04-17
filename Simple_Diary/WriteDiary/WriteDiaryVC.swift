@@ -13,6 +13,11 @@
 
 import UIKit
 
+enum DiaryEditMode {
+    case new
+    case edit(IndexPath, Diary)
+}
+
 protocol WriteDiaryViewDelegate: AnyObject {
     func didSelectRegister(diary: Diary)
 }
@@ -27,6 +32,7 @@ class WriteDiaryVC: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate: Date?
     weak var delegate: WriteDiaryViewDelegate? // weak를 붙이지 않는다면 강한 참조에 의해 메모리 누수 발생
+    var diaryEditMode: DiaryEditMode = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,7 @@ class WriteDiaryVC: UIViewController {
         configureContextsTextView()
         configureDatePicker()
         configureInputField()
+        configureEditMode()
     }
 
     private func configure() {
@@ -42,6 +49,20 @@ class WriteDiaryVC: UIViewController {
         registerBtn.isEnabled = false
         navigationItem.title = "일기 작성"
         navigationItem.rightBarButtonItem = registerBtn
+    }
+    
+    private func configureEditMode() {
+        switch diaryEditMode {
+        case .edit(_, let diary):
+            titleField.text = diary.title
+            contentsTextView.text = diary.contents
+            diaryDate = diary.date
+            dateField.text = CalcDate().dateToString(date: diaryDate!)
+            registerBtn.title = "수정"
+            
+        default:
+            break
+        }
     }
     
     private func configureContextsTextView() {
@@ -72,7 +93,16 @@ class WriteDiaryVC: UIViewController {
         guard let contents = contentsTextView.text else { return }
         guard let date = diaryDate else { return }
         let diary = Diary(title: title, contents: contents, date: date, bookMark: false)
-        delegate?.didSelectRegister(diary: diary)
+        switch diaryEditMode {
+        case .new:
+            delegate?.didSelectRegister(diary: diary)
+        case .edit(let indexPath, _):
+            NotificationCenter.default.post(
+                name: Notification.Name("editDiary"),
+                object: diary,
+                userInfo: ["indexPath.item": indexPath.item]
+            )
+        }
         navigationController?.popViewController(animated: true)
     }
     

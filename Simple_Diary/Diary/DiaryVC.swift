@@ -38,6 +38,13 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate, DiaryDetailViewDelegate
         let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction))
         navigationItem.rightBarButtonItem = addBtn
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification(_:)),
+            name: NSNotification.Name("editDiary"),
+            object: nil
+        )
+        
         guard let diarys = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else { return }
         let diarylist = diarys.map {
             let title = $0["title"] as! String
@@ -47,6 +54,14 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate, DiaryDetailViewDelegate
             return Diary(title: title, contents: contents, date: date, bookMark: bookMark)
         }
         diaryList = sorting(list: diarylist)
+    }
+    
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else { return }
+        guard let item = notification.userInfo?["indexPath.item"] as? Int else { return }
+        self.diaryList[item] = diary
+        self.diaryList = sorting(list: diaryList)
+        self.applyItems(items: diaryList)
     }
     
     private func configureCollectionView() {
@@ -101,6 +116,10 @@ class DiaryVC: UIViewController, WriteDiaryViewDelegate, DiaryDetailViewDelegate
     func didSelectDelete(indexPath: IndexPath) {
         diaryList.remove(at: indexPath.item)
         applyItems(items: diaryList)
+    }
+    
+    func didSelectBookMark(indexpath: IndexPath, bookMark: Bool) {
+        diaryList[indexpath.item].bookMark = bookMark
     }
     
     private func saveDiaryList() {
